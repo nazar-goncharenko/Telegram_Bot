@@ -2,6 +2,8 @@ import telebot
 from telebot import types
 from telebot import types
 import shelve
+import config
+import Controller
 
 bot = telebot.TeleBot("1086478120:AAENzfoluFzk4OYpFPsoJ-sO8ib_Lxp3crI")
 
@@ -18,8 +20,8 @@ def start(mess):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-  
     if message.text == "Push":
+
         bot.send_message(message.from_user.id, "Привет")
         keyboard = types.InlineKeyboardMarkup(); #наша клавиатура
         key_yes = types.InlineKeyboardButton(text='Да', callback_data='yes'); #кнопка «Да»
@@ -30,6 +32,12 @@ def handle_text(message):
         bot.send_message(message.from_user.id, text=question, reply_markup=keyboard)
     elif message.text == "Pull":
         bot.send_message(message.from_user.id, "НИЧЕГО")
+        bot.send_message(message.from_user.id, "Push")
+    if message.text == "Pull":
+        bot.send_message(message.from_user.id, "Pull")
+    elif message.text == "/hint":
+        bot.send_message(message.from_user.id, "hint")
+
 
 
 if __name__ == '__main__':
