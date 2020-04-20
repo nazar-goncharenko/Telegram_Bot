@@ -5,7 +5,7 @@ import shelve
 import config
 import Controller
 
-bot = telebot.TeleBot("1086478120:AAENzfoluFzk4OYpFPsoJ-sO8ib_Lxp3crI")
+bot = telebot.TeleBot(config.token)
 
 
 @bot.message_handler(commands=['start'])
@@ -38,6 +38,8 @@ def handle_text(message):
     elif message.text == "/hint":
         bot.send_message(message.from_user.id, "hint")
 
+
+Controller.cnx
 
 
 if __name__ == '__main__':
