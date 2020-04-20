@@ -1,9 +1,10 @@
 import telebot
 from telebot import types
+from telebot import types
 import shelve
-import config
 
-bot = telebot.TeleBot(config.token)
+bot = telebot.TeleBot("1086478120:AAENzfoluFzk4OYpFPsoJ-sO8ib_Lxp3crI")
+
 
 @bot.message_handler(commands=['start'])
 def start(mess):
@@ -19,19 +20,17 @@ def start(mess):
 def handle_text(message):
   
     if message.text == "Push":
-        bot.send_message(message.from_user.id, "Task 1, /hint")
-    elif message.text == "/hint":
-        bot.send_message(message.from_user.id, "Hint 1")
-  
-  
-@bot.message_handler(content_types=['text'])
-def handle_text(message):
-  
-    if message.text == "Pull":
-        bot.send_message(message.from_user.id, "Task 2, /hint")
-    elif message.text == "/hint":
-        bot.send_message(message.from_user.id, "Hint 2")
+        bot.send_message(message.from_user.id, "Привет")
+        keyboard = types.InlineKeyboardMarkup(); #наша клавиатура
+        key_yes = types.InlineKeyboardButton(text='Да', callback_data='yes'); #кнопка «Да»
+        keyboard.add(key_yes); #добавляем кнопку в клавиатуру
+        key_no= types.InlineKeyboardButton(text='Нет', callback_data='no');
+        keyboard.add(key_no);
+        question = 'Да или Нет?';
+        bot.send_message(message.from_user.id, text=question, reply_markup=keyboard)
+    elif message.text == "Pull":
+        bot.send_message(message.from_user.id, "НИЧЕГО")
 
 
 if __name__ == '__main__':
-    bot.polling(True)
+     bot.infinity_polling()
