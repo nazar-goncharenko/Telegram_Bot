@@ -2,6 +2,7 @@ import telebot
 from telebot import types
 import shelve
 import config
+import Controller
 
 bot = telebot.TeleBot(config.token)
 
@@ -17,20 +18,12 @@ def start(mess):
 
 @bot.message_handler(content_types=['text'])
 def handle_text(message):
-  
     if message.text == "Push":
-        bot.send_message(message.from_user.id, "Task 1, /hint")
-    elif message.text == "/hint":
-        bot.send_message(message.from_user.id, "Hint 1")
-  
-  
-@bot.message_handler(content_types=['text'])
-def handle_text(message):
-  
+        bot.send_message(message.from_user.id, "Push")
     if message.text == "Pull":
-        bot.send_message(message.from_user.id, "Task 2, /hint")
+        bot.send_message(message.from_user.id, "Pull")
     elif message.text == "/hint":
-        bot.send_message(message.from_user.id, "Hint 2")
+        bot.send_message(message.from_user.id, "hint")
 
 
 if __name__ == '__main__':
