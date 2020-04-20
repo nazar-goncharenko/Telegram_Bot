@@ -1,8 +1,9 @@
-import mysql.connector
+import  mysql.connector;
 
-#cnx = mysql.connector.connect(user='scott', password='password', 
-#                              host='127.0.0.1', 
-#                              database='employees')
 
-#cnx.close()
+cnx = mysql.connector.connect(user='root', password='root', 
+                              host='localhost', 
+                              database='db_users')
+
+cnx.close()
 
