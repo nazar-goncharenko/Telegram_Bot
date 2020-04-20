@@ -2,7 +2,7 @@
 #import config
 import telebot
 
-token = ""
+token = "1086478120:AAENzfoluFzk4OYpFPsoJ-sO8ib_Lxp3crI"
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(content_types=["text"])
