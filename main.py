@@ -15,7 +15,7 @@ def start(mess):
     markup = types.ReplyKeyboardMarkup()
     btn_a = types.KeyboardButton('Show Subject')
     markup.add(btn_a)
-    bot.send_message(chat_id, 'Привет', reply_markup=markup)
+    bot.send_message(chat_id, 'Привіт, я бот який допоможе тобі швидко знаходити корисну інформацію з різних предметів, або ж поділитися посиланнями на цікаві джерела. Стартуй, вибирай що ти хочеш зробити(знайти/завантажити)', reply_markup=markup)
 
 
 @bot.message_handler(content_types=['text'])
