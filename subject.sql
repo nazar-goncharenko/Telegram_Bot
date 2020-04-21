@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 21, 2020 at 09:14 AM
+-- Generation Time: Apr 21, 2020 at 06:01 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -47,7 +47,13 @@ INSERT INTO `links` (`link_id`, `url`, `rating`, `reports`, `topic_id`, `title`)
 (3, 'https://uk.wikipedia.org/wiki/%D0%A0%D1%8F%D0%B4_(%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0)', NULL, NULL, 3, 'Rows'),
 (4, 'https://en.wikipedia.org/wiki/Multiple_integral', NULL, NULL, 4, 'Double integrals'),
 (5, 'https://en.wikipedia.org/wiki/Probability_theory#Discrete_probability_distributions', NULL, NULL, 5, 'Probability'),
-(6, 'https://www.bincodes.com/bin-search/', NULL, NULL, 6, 'Bin search');
+(6, 'https://www.bincodes.com/bin-search/', NULL, NULL, 6, 'Bin search'),
+(7, 'https://www.perfect-english-grammar.com/', NULL, NULL, 7, 'Perfect grammar'),
+(8, 'https://learnenglish.britishcouncil.org/vocabulary', NULL, NULL, 8, 'British vocabulary'),
+(9, 'https://francais.lingolia.com/en/grammar', NULL, NULL, 9, 'Grammar'),
+(10, 'https://www.frenchpod101.com/french-word-lists/', NULL, NULL, 10, '100 core french words'),
+(11, 'https://learngerman.dw.com/en/grammar', NULL, NULL, 11, 'DW grammar'),
+(12, 'https://german.net/vocabulary/', NULL, NULL, 12, 'German vocabulary');
 
 -- --------------------------------------------------------
 
@@ -69,7 +75,10 @@ INSERT INTO `ssubject` (`sSubject_id`, `title`, `subject_id`) VALUES
 (1, 'Diffuru', 1),
 (2, 'Math analythis', 1),
 (3, 'Probability theory', 1),
-(4, 'Bin search', 2);
+(4, 'Bin search', 2),
+(5, 'English', 3),
+(6, 'French', 3),
+(7, 'German', 3);
 
 -- --------------------------------------------------------
 
@@ -88,7 +97,8 @@ CREATE TABLE `subjects` (
 
 INSERT INTO `subjects` (`subject_id`, `name`) VALUES
 (1, 'Math'),
-(2, 'Programming');
+(2, 'Programming'),
+(3, 'Languages');
 
 -- --------------------------------------------------------
 
@@ -112,7 +122,13 @@ INSERT INTO `topic` (`topic_id`, `title`, `ssubject_id`) VALUES
 (3, 'Rows', 2),
 (4, 'Double integrals', 2),
 (5, 'Discrete probability distributions', 3),
-(6, 'Bin search', 4);
+(6, 'Bin search', 4),
+(7, 'Grammar', 5),
+(8, 'Vocabulary', 5),
+(9, 'Grammaire', 6),
+(10, 'Vocabulaire', 6),
+(11, 'Grammatik', 7),
+(12, 'Wortschatz', 7);
 
 --
 -- Indexes for dumped tables
@@ -155,25 +171,25 @@ ALTER TABLE `topic`
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `ssubject`
 --
 ALTER TABLE `ssubject`
-  MODIFY `sSubject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `sSubject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `subjects`
 --
 ALTER TABLE `subjects`
-  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `subject_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `topic`
 --
 ALTER TABLE `topic`
-  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Constraints for dumped tables
