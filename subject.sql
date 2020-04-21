@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 21, 2020 at 06:01 PM
+-- Generation Time: Apr 21, 2020 at 10:26 PM
 -- Server version: 5.7.24
 -- PHP Version: 7.2.14
 
@@ -34,26 +34,27 @@ CREATE TABLE `links` (
   `rating` int(11) DEFAULT NULL,
   `reports` int(11) DEFAULT NULL,
   `topic_id` int(11) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL
+  `title` varchar(255) DEFAULT NULL,
+  `userId` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `links`
 --
 
-INSERT INTO `links` (`link_id`, `url`, `rating`, `reports`, `topic_id`, `title`) VALUES
-(1, 'http://difur.in.ua/studentam/lektsii/lc03/', NULL, NULL, 1, '1st order'),
-(2, 'https://yukhym.com/uk/prikladi-diferentsialnikh-rivnyan/neodnoridni-diferentsialni-rivnyannya-2-poryadku.html', NULL, NULL, 2, '2nd order'),
-(3, 'https://uk.wikipedia.org/wiki/%D0%A0%D1%8F%D0%B4_(%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0)', NULL, NULL, 3, 'Rows'),
-(4, 'https://en.wikipedia.org/wiki/Multiple_integral', NULL, NULL, 4, 'Double integrals'),
-(5, 'https://en.wikipedia.org/wiki/Probability_theory#Discrete_probability_distributions', NULL, NULL, 5, 'Probability'),
-(6, 'https://www.bincodes.com/bin-search/', NULL, NULL, 6, 'Bin search'),
-(7, 'https://www.perfect-english-grammar.com/', NULL, NULL, 7, 'Perfect grammar'),
-(8, 'https://learnenglish.britishcouncil.org/vocabulary', NULL, NULL, 8, 'British vocabulary'),
-(9, 'https://francais.lingolia.com/en/grammar', NULL, NULL, 9, 'Grammar'),
-(10, 'https://www.frenchpod101.com/french-word-lists/', NULL, NULL, 10, '100 core french words'),
-(11, 'https://learngerman.dw.com/en/grammar', NULL, NULL, 11, 'DW grammar'),
-(12, 'https://german.net/vocabulary/', NULL, NULL, 12, 'German vocabulary');
+INSERT INTO `links` (`link_id`, `url`, `rating`, `reports`, `topic_id`, `title`, `userId`) VALUES
+(1, 'http://difur.in.ua/studentam/lektsii/lc03/', NULL, NULL, 1, '1st order', NULL),
+(2, 'https://yukhym.com/uk/prikladi-diferentsialnikh-rivnyan/neodnoridni-diferentsialni-rivnyannya-2-poryadku.html', NULL, NULL, 2, '2nd order', NULL),
+(3, 'https://uk.wikipedia.org/wiki/%D0%A0%D1%8F%D0%B4_(%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0)', NULL, NULL, 3, 'Rows', NULL),
+(4, 'https://en.wikipedia.org/wiki/Multiple_integral', NULL, NULL, 4, 'Double integrals', NULL),
+(5, 'https://en.wikipedia.org/wiki/Probability_theory#Discrete_probability_distributions', NULL, NULL, 5, 'Probability', NULL),
+(6, 'https://www.bincodes.com/bin-search/', NULL, NULL, 6, 'Bin search', NULL),
+(7, 'https://www.perfect-english-grammar.com/', NULL, NULL, 7, 'Perfect grammar', NULL),
+(8, 'https://learnenglish.britishcouncil.org/vocabulary', NULL, NULL, 8, 'British vocabulary', NULL),
+(9, 'https://francais.lingolia.com/en/grammar', NULL, NULL, 9, 'Grammar', NULL),
+(10, 'https://www.frenchpod101.com/french-word-lists/', NULL, NULL, 10, '100 core french words', NULL),
+(11, 'https://learngerman.dw.com/en/grammar', NULL, NULL, 11, 'DW grammar', NULL),
+(12, 'https://german.net/vocabulary/', NULL, NULL, 12, 'German vocabulary', NULL);
 
 -- --------------------------------------------------------
 
@@ -171,7 +172,7 @@ ALTER TABLE `topic`
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `link_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `ssubject`
