@@ -6,13 +6,7 @@ import mysql.connector
 bot = telebot.TeleBot(config.token)
 database = mysql.connector.connect(user='root', password='root',
                                    host='localhost',
-                                   database='newschema')
-
-bot.send_message(515188127,"🔥🔥🔥Привіт, Надя, я готовий до роботи🔥🔥🔥")
-bot.send_message(519278092,"🔥🔥🔥Привіт, Назар, я готовий до роботи🔥🔥🔥")
-bot.send_message(500732785,"🔥🔥🔥Привіт, Андрій, я готовий до роботи🔥🔥🔥")
-bot.send_message(301001338,"🔥🔥🔥Привіт, Олеслав, я готовий до роботи🔥🔥🔥")
-
+                                   database='newschema2')
 
 @bot.message_handler(commands=['start'])
 def start(mess):
@@ -31,7 +25,7 @@ def handle_text(message):
             cursor = database.cursor()
             cursor.execute("select name, subject_id from subjects;")
             subjects = cursor.fetchall();
-            keyboard = types.InlineKeyboardMarkup();  # наша клавиатура
+            keyboard = types.InlineKeyboardMarkup()
             for tmp in subjects:
                 keyboard.add(types.InlineKeyboardButton(text=str(tmp[0]), callback_data='s' + str(tmp[1])))
             global sended_message
@@ -119,12 +113,12 @@ def callback_inline(call):
             markup = types.ReplyKeyboardMarkup()
             btn_a = types.KeyboardButton('/add')
             markup.add(btn_a)
-            bot.send_message(call.from_user.id,"Tuuch /add",
+            bot.send_message(call.from_user.id,"Клацніть /add будь ласка",
                             reply_markup=markup)
         elif call.data == "add":
             print(name, url, topic_back)
-            request = "INSERT INTO links(url, title, topic_id) VALUES(%s,%s,%s)"
-            arquments = (url, name, topic_back)
+            request = "INSERT INTO links(url, title, topic_id, userId) VALUES(%s,%s,%s,%s)"
+            arquments = (url, name, topic_back, call.from_user.id)
             cursor = database.cursor()
             try:
                 cursor.execute(request, arquments)
@@ -133,7 +127,7 @@ def callback_inline(call):
                 markup = types.ReplyKeyboardMarkup()
                 btn_a = types.KeyboardButton('Show Subject')
                 markup.add(btn_a)
-                bot.send_message(call.from_user.id,"Successful, suka",reply_markup=markup)
+                bot.send_message(call.from_user.id,"Successful",reply_markup=markup)
             except Error as error:
                 print(error)
 
