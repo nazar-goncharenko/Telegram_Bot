@@ -100,6 +100,10 @@ def callback_inline(call):
         elif call.data[0] == 'u':
             cursor = database.cursor()
             cursor.execute("select url, title from links where topic_id = " + str(call.data[1:]) + " order by rating;")
+
+            global url_back
+            url_back = str(call.data[1:])
+
             subjects = cursor.fetchall();
             keyboard = types.InlineKeyboardMarkup();  # наша клавиатура
             for tmp in subjects:
@@ -116,9 +120,9 @@ def callback_inline(call):
             bot.send_message(call.from_user.id,"Клацніть /add будь ласка",
                             reply_markup=markup)
         elif call.data == "add":
-            print(name, url, topic_back)
+            print(name, url, url_back)
             request = "INSERT INTO links(url, title, topic_id, userId) VALUES(%s,%s,%s,%s)"
-            arquments = (url, name, topic_back, call.from_user.id)
+            arquments = (url, name, url_back, call.from_user.id)
             cursor = database.cursor()
             try:
                 cursor.execute(request, arquments)
